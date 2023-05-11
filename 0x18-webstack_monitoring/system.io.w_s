@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+//Bash script to Set up a monitor that checks the number of write requests issued to the device per second.
+{
+	"name": "Write request on server.",
+	"type": "query alert",
+	"query": "avg(last_5m):avg:system.io.w_s{host:144679-web-01} by {host} > 50",
+	"message": "Number of write request has exceeded 100. @oluwatosindorcas68@gmail.com",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 50,
+			"warning": 25
+		},
+		"notify_audit": false,
+		"require_full_window": false,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"include_tags": true,
+		"new_group_delay": 60
+	}
+}
