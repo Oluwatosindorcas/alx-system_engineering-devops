@@ -1,0 +1,1 @@
+cat ./alx.pub | ssh school "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
